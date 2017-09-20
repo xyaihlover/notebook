@@ -1,11 +1,16 @@
-***零、计算机概论
-***一、linux是什么
-***二、linux如何学习
-***三、主机规划/磁碟分割
-***四、安装centos 5.x
-***五、首次登入与man
-	date
-	man
+#vbird
+***
+
+##零、计算机概论
+## 一、linux是什么
+## 二、linux如何学习
+## 三、主机规划/磁碟分割
+## 四、安装centos 5.x
+***
+
+## 五、首次登入与man
+* date
+* man
 		man 待查找的名字
 		man date
 		(1,5,8这三个特别重要)
@@ -33,7 +38,7 @@
 		(打开对应类别的man手册)
 		man -k man
 		(查找说明档中,只要有man这个关键字就将该说明列出来)
-	shutdown
+* shutdown
 		/sbin/shutdown -t 秒 -arkhncfF 时间 警告讯息
 			-t 秒 过几秒后关机
 			-k 不是真的关机,只是发送警告讯息出去
@@ -54,8 +59,9 @@
 		(30分后重启)
 		shutdown -k now 'the system will reboot'
 		(只发出警告信息)
+***
 
-***六、linux档案权限/目录配置
+##六、linux档案权限目录配置
 	chgrp
 		chgrp -R 目录名或文件名
 			-R 递归更改
@@ -70,8 +76,9 @@
 		uname -r
 	lsb_release
 		lsb_release -a
+***
 
-***七、linux档案与目录管理
+##七、linux档案与目录管理
 	目录的相关操作
 		.	代表此层目录
 		..	代表上一层目录
@@ -142,10 +149,12 @@
 	updatedb(更新数据库)
 	find
 		find path option action
-			
+***
 
-***八、linux磁碟与档案系统
-***九、档案与档案系统的打包
+##八、linux磁碟与档案系统
+***
+
+##九、档案与档案系统的打包
 	gzip,zcat
 	(gzip:可以解开compress,zip,gzip等,压缩解压都不保留源文件)
 	(zcat:可以直接读取压缩包里面的文本内容)
@@ -245,8 +254,9 @@
 			-graft-point graft有转嫁或移植的意思
 		例:
 		mkisofs
+***
 
-***十、vim编辑器
+##十、vim编辑器
 	dos2unix
 		dos2unix -kn file newfile
 			-k 保留该档案原本的mtime时间格式
@@ -258,11 +268,16 @@
 	(转换编码集)
 		iconv --list
 		iconv -f 原编码 -t 新编码 filename -o newfile
+***
 
 十一、认识与学习BASH
+
 十二、正则表示法
+
 十三、学习shell scripts
-***十四、linux账号管理与ACL
+***
+
+##十四、linux账号管理与ACL
 	初始组群
 		passwd里面的GID就是初始组群,用户所属初始组,不需要在group中该组最后一栏添加该用户的用户名
 	有效组群
@@ -288,7 +303,7 @@
 		useradd -D
 	UID,GID,密码参数预设值
 		/etc/login.defs
-	passwd
+passwd
 		passwd --stdin(不加用户名,所有人都是用来更改自己的密码)
 		passwd -l -u --stdin -S -n 日期 -x 日数 -w 日数 -i 日期
 账号(root才能使用)
@@ -463,9 +478,12 @@
 		ADMINS	ALL=(root)	/bin/su -
 	w,who,last,lastlog
 	(查询使用者)
+***
 
 十五、quota,raid,lvm
-***十六、例行工作排程
+***
+
+##十六、例行工作排程
 	at(atd)
 		at -mldv time
 		at -c 工作号码
@@ -480,8 +498,9 @@
 			-e 编辑crontab的工作内容
 			-l 查阅工作内容
 			-r 移除所有工作内容,仅移除一项目,-e编辑
+***
 
-***十七、程序管理与selinux
+##十七、程序管理与selinux
 	&(直接将指令丢到背景中执行)
 		tar -zpcf /tmp/etc.tar.gz /etc &
 	ctrl+z(将目前的工作丢到背景中暂停)
@@ -518,10 +537,15 @@
 	(持续侦测程序运作状态)
 		top -d 数字 |top -bnp
 	pstree
+***
 
-***十八、认识系统服务
+##十八、认识系统服务
+***
+
 十九、认识与分析登录档
-***二十、开机流程、模组管理与loader
+***
+
+##二十、开机流程、模组管理与loader
 	流程
 		1.BIOS
 		2.MBR
