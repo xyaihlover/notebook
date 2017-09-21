@@ -1,4 +1,4 @@
-#vbird
+#vbird linux
 ***
 
 ##零、计算机概论
@@ -11,9 +11,9 @@
 ## 五、首次登入与man
 * date
 * man
+
 		man 待查找的名字
-		man date
-		(1,5,8这三个特别重要)
+			(1,5,8这三个特别重要)
 			1 使用者在shell环境中可以操作的指令或可执行档
 			2 系统核心可呼叫的函数与工具等
 			3 一些常用的函数好来屋函数库,大部分是C
@@ -23,28 +23,35 @@
 			7 惯例与协定等,例如linux档案系统,网络协定,ascii code说明等
 			8 系统管理员可用的指令
 			9 跟kernel有关的文件
-			NAME 简短的指令,资料名称说明
-			SYNOPSIS 简短的指令下达语法简介
-			DESCRIPTION 较为完整的说明,这部分仔细看
-			OPTIONS 针对语法部分中,有列举的所有可用的选项说明
-			COMMANDS 当这个程式在执行时,可以在此程式中下达的指令
-			FILES 这个程式或资料所使用或参考或连结到的某些档案
-			SEE ALSO 可以参考的,跟这个指令或资料有相关的其他说明
-			EXAMPLE 一些可以参考的范例
-			BUGS 是否有相关的bug
+		NAME 简短的指令,资料名称说明
+		SYNOPSIS 简短的指令下达语法简介
+		DESCRIPTION 较为完整的说明,这部分仔细看
+		OPTIONS 针对语法部分中,有列举的所有可用的选项说明
+		COMMANDS 当这个程式在执行时,可以在此程式中下达的指令
+		FILES 这个程式或资料所使用或参考或连结到的某些档案
+		SEE ALSO 可以参考的,跟这个指令或资料有相关的其他说明
+		EXAMPLE 一些可以参考的范例
+		BUGS 是否有相关的bug
+	>	例:
+		man date
+		
 		man -f 待查找的名字
 		(可查看此名字有几类说明)
+		
 		man 1-7 待查找的名字
 		(打开对应类别的man手册)
+		
 		man -k man
 		(查找说明档中,只要有man这个关键字就将该说明列出来)
+		
 * shutdown
+
 		/sbin/shutdown -t 秒 -arkhncfF 时间 警告讯息
 			-t 秒 过几秒后关机
 			-k 不是真的关机,只是发送警告讯息出去
 			-c 取消已经在进行的shutdown指令内容
 			时间 这是一定要加入的参数指定系统关机的时间
-		例:
+	>	例:
 		/sbin/shutdown -h 10 'i will shutdown after 10mins'
 		(告诉大家,机器会在十分钟后关机)
 		shutdown -h now
@@ -62,19 +69,28 @@
 ***
 
 ##六、linux档案权限目录配置
-	chgrp
+* chgrp
+
 		chgrp -R 目录名或文件名
 			-R 递归更改
-	chown
+			
+* chown
+
 		chown -R 账号名称 档案或目录
 		chown -R 账号名称:组名称 档案或目录
 			-R 递归更改
-	chmod
+			
+* chmod
+
 		chmod -R xyz 档案或目录
 			-R 递归更改
-	uname
+			
+* uname
+
 		uname -r
-	lsb_release
+		
+* lsb_release
+
 		lsb_release -a
 ***
 
