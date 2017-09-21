@@ -2,18 +2,27 @@
 ***
 
 ##零、计算机概论
+
+
 ## 一、linux是什么
+
+
 ## 二、linux如何学习
+
+
 ## 三、主机规划/磁碟分割
+
+
 ## 四、安装centos 5.x
-***
+
 
 ## 五、首次登入与man
 * date
 * man
 
 		man 待查找的名字
-			(1,5,8这三个特别重要)
+		
+		man的说明:(1,5,8这三个特别重要)
 			1 使用者在shell环境中可以操作的指令或可执行档
 			2 系统核心可呼叫的函数与工具等
 			3 一些常用的函数好来屋函数库,大部分是C
@@ -23,15 +32,17 @@
 			7 惯例与协定等,例如linux档案系统,网络协定,ascii code说明等
 			8 系统管理员可用的指令
 			9 跟kernel有关的文件
-		NAME 简短的指令,资料名称说明
-		SYNOPSIS 简短的指令下达语法简介
-		DESCRIPTION 较为完整的说明,这部分仔细看
-		OPTIONS 针对语法部分中,有列举的所有可用的选项说明
-		COMMANDS 当这个程式在执行时,可以在此程式中下达的指令
-		FILES 这个程式或资料所使用或参考或连结到的某些档案
-		SEE ALSO 可以参考的,跟这个指令或资料有相关的其他说明
-		EXAMPLE 一些可以参考的范例
-		BUGS 是否有相关的bug
+		
+		man的结构:
+			NAME 简短的指令,资料名称说明
+			SYNOPSIS 简短的指令下达语法简介
+			DESCRIPTION 较为完整的说明,这部分仔细看
+			OPTIONS 针对语法部分中,有列举的所有可用的选项说明
+			COMMANDS 当这个程式在执行时,可以在此程式中下达的指令
+			FILES 这个程式或资料所使用或参考或连结到的某些档案
+			SEE ALSO 可以参考的,跟这个指令或资料有相关的其他说明
+			EXAMPLE 一些可以参考的范例
+			BUGS 是否有相关的bug
 	>	例:
 		man date
 		
@@ -66,7 +77,7 @@
 		(30分后重启)
 		shutdown -k now 'the system will reboot'
 		(只发出警告信息)
-***
+
 
 ##六、linux档案权限目录配置
 * chgrp
@@ -92,30 +103,35 @@
 * lsb_release
 
 		lsb_release -a
-***
+
 
 ##七、linux档案与目录管理
-	目录的相关操作
+* 目录的相关操作
+
 		.	代表此层目录
 		..	代表上一层目录
 		-	代表前一个工作目录
 		~	代表目前使用者身份所在的家目录
 		~账号	代表账号对应的这个用户的家目录
-	pwd
+		
+* pwd
+
 		pwd -P
 			-P 显示真实路径,而不是连结档路径
-	mkdir
+			
+* mkdir
+
 		mkdir -mp 目录名称
 			-m 直接设定权限,不需要看预设umask脸色
 			-p 递归建立
-	rmdir
-	(删除空目录)
+			
+* rmdir(删除空目录)
+	
 		rmdir -p 目录名称
 			-p 递归删除
-	$PATH
-		echo $PATH
-		PATH=$PATH:路径
-	cp
+			
+* cp
+
 		cp -adfilprsu 来源档 目标档
 		cp options source1 source2 ... directory
 			-a 等于-pdr
@@ -127,48 +143,58 @@
 		cp -s bashrc bashrc_slink(软连接)
 		cp -l bashrc bashrc_hlink(硬连接)
 		cp -d bashrc_slink bashrc_slink_2
-	rm
+		
+* rm
+
 		rm -fir 档案或目录
 			-f force
 			-i 互动模式,删除前会提示
 			-r 递归删除,常用在目录
-	mv
+			
+* mv
+
 		mv -fiu source destination
 		mv options source1 source2 ... directory
-	rename
-	(更名)
-	basename
-	dirname
-	(取得档案名称或目录名称)
-	touch
+		
+* rename(更名)
+* basename
+* dirname(取得档案名称或目录名称)
+* touch
+
 		touch -acdmt 档案
 			-a 仅更改access time
 			-c 仅更改档案的时间,若档案不存在则不建立新档案
 			-d 后面接欲更改的时间而不用目前的时间,也可以使用--date="日期或时间"
 			-m 仅修改mtime
 			-t 后面接欲更改的时间而不用目前的时间,格式为YYMMDDhhmm
-	which
-	(寻找执行档)
+			
+* which(寻找执行档)
+
 		which -a command
-	whereis
-	(寻找特定档案,执行档或一般档案或目录)
+		
+* whereis(寻找特定档案,执行档或一般档案或目录)
+
 		whereis -bmsu 档案或目录名
 			-b 只找binary格式的档案
 			-m 只找在说明档manual路径下的档案
 			-s 只找source来源档案
 			-u 搜索不在上述三个项目当中的其他特殊档案
-	locate
+			
+* locate
+
 		locate -ir keyword
 			-i 忽略大小写的差异
 			-r 后面可按正则表示法的显示方法
-	locate和whereis都是检索的数据库
-	updatedb(更新数据库)
-	find
+	>	locate和whereis都是检索的数据库
+	
+* updatedb(更新数据库)
+* find
+
 		find path option action
-***
+
 
 ##八、linux磁碟与档案系统
-***
+
 
 ##九、档案与档案系统的打包
 	gzip,zcat
@@ -270,7 +296,7 @@
 			-graft-point graft有转嫁或移植的意思
 		例:
 		mkisofs
-***
+
 
 ##十、vim编辑器
 	dos2unix
@@ -284,14 +310,20 @@
 	(转换编码集)
 		iconv --list
 		iconv -f 原编码 -t 新编码 filename -o newfile
-***
+
 
 十一、认识与学习BASH
+* $PATH
+
+		echo $PATH
+		PATH=$PATH:路径
+		
+
 
 十二、正则表示法
 
 十三、学习shell scripts
-***
+
 
 ##十四、linux账号管理与ACL
 	初始组群
@@ -494,10 +526,10 @@ passwd
 		ADMINS	ALL=(root)	/bin/su -
 	w,who,last,lastlog
 	(查询使用者)
-***
+
 
 十五、quota,raid,lvm
-***
+
 
 ##十六、例行工作排程
 	at(atd)
@@ -514,7 +546,7 @@ passwd
 			-e 编辑crontab的工作内容
 			-l 查阅工作内容
 			-r 移除所有工作内容,仅移除一项目,-e编辑
-***
+
 
 ##十七、程序管理与selinux
 	&(直接将指令丢到背景中执行)
@@ -553,13 +585,13 @@ passwd
 	(持续侦测程序运作状态)
 		top -d 数字 |top -bnp
 	pstree
-***
+
 
 ##十八、认识系统服务
-***
+
 
 十九、认识与分析登录档
-***
+
 
 ##二十、开机流程、模组管理与loader
 	流程
