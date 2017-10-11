@@ -28,9 +28,9 @@ Vim 所工作的终端 (或者 Windows 的 Console 窗口) 的字符编码方式
 
 vim的设置一般放在/etc/vimrc文件中，不过，建议不要修改它。可以修改~/.vimrc文件（默认不存在，可以自己新建一个），写入所希望的设置。
 
-	:set encoding=utf-8
-	:set fileencodings=ucs-bom,utf-8,cp936
-	:set fileencoding=gb2312
-	:set termencoding=utf-8
+    :set encoding=utf-8
+    :set fileencodings=ucs-bom,utf-8,cp936
+    :set fileencoding=gb2312
+    :set termencoding=utf-8
 
 其中，fileencoding配置可以设置utf-8，但是我的mp3好像不支持utf-8编码，所以干脆，我就设置为gb2312了。现在搞定了，不管是vi中还是mp3上都可以显示无乱码的.txt文件了。
