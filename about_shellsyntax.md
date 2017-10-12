@@ -1,3 +1,8 @@
+#about shell#
+***
+
+##shell syntax##
+
 echo -e(支持转义符) ""
 
 read -p(打印字符串) "" var(变量)
