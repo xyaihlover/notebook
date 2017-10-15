@@ -191,7 +191,13 @@
 * find
 
         find path option action
-
+        与时间相关:
+        -atime,-ctime,-mtime
+        -mtime   n : n 天之前的一天之内被更动过内容的档案
+        -mtime +n : n 天之前不含n天本身被更动过内容的档案
+        -mtime  -n : n 天之内含n天本身的被更动过内容的档案
+        -mtime 0 :  0代表目前的时间
+        -newer file : file为一个存在的档案,列出比file还要新的档案
 
 ##八、linux磁碟与档案系统
 
