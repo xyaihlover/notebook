@@ -160,5 +160,33 @@
 
         windows下:
         \\ip或主机名\winshare
-   
-    
+
+##lamp##
+
+* 需要的软件
+
+        httpd,mysql,mysql-server,php,php-devel,php-mysql
+
+* httpd配置文件
+
+        /etc/httpd/conf/httpd.conf(主要配置文件)
+        /etc/httpd/conf.d/*.conf(额外配置文件)
+
+* mysql配置文件
+
+        /etc/my.cnf
+        /var/lib/mysql(mysql资料库档案存放路径)
+
+* php配置文件
+
+        /etc/php.ini
+        /etc/httpd/conf.d/php.cnf
+
+* httpd.conf
+
+        Order deny,allow(默认允许所有)
+        Order allow,deny(默认拒绝所有)
+        注：
+        1. 最先是默认条件
+        2. 然后是执行逗号前内容的对应语句
+        3. 再次是执行逗号后内容的对应语句
