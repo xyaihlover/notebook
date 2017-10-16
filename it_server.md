@@ -187,6 +187,26 @@
         Order deny,allow(默认允许所有)
         Order allow,deny(默认拒绝所有)
         注：
-        1. 最先是默认条件
-        2. 然后是执行逗号前内容的对应语句
-        3. 再次是执行逗号后内容的对应语句
+            1. 最先是默认条件
+            2. 然后是执行逗号前内容的对应语句
+            3. 再次是执行逗号后内容的对应语句
+
+* 虚拟目录
+
+        原httpd.conf不动,在conf.d中增加virtual.conf
+        virtual.conf中:
+            <Directory "路径">
+                Option FollowSymLinks
+                AllowOverride None
+                Order allow,deny
+                allow from all
+            <Directory>
+            <VirtualHost *:80>
+                ServerName www.study.com
+                DocumentRoot 路径
+            <VirtualHost>
+            (
+                多IP配置方法:
+                    copy ifcfg-eth0 ifcfg-eth0:0
+                    编辑ifcfg-eth0:0,device=eth0:0
+            )

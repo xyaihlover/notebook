@@ -157,6 +157,20 @@
         mv options source1 source2 ... directory
         
 * rename(更名)
+
+        语法一:
+            rename from to file
+            例:
+                foo1,foo2,...foo9,foo10,..foo278
+        	rename foo foo0 foo?
+        	rename foo foo0 foo??
+        	(foo001,foo002,...foo278)
+        语法二(perl):
+            rename 's///' file
+            例:
+                rename 's/\.repo$/\.repo.bak/' *.repo
+                rename 'y/A-Z/a-z/' *(大写转换为小写)
+
 * basename
 * dirname(取得档案名称或目录名称)
 * touch
