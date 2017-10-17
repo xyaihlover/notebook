@@ -210,3 +210,41 @@
                     copy ifcfg-eth0 ifcfg-eth0:0
                     编辑ifcfg-eth0:0,device=eth0:0
             )
+
+* 性能调优
+
+    1. 使用最新版本的apache
+    
+            第一点就是把apache更新到最新版
+            如果从源文件安装的话最好把配置文件备份以免不测
+            最好使用系统自己的包管理器来更新
+            例:
+            yum update httpd
+            aptitude safe-upgrade apache2
+            
+    2. 考虑升级系统内核
+    
+    3. 审慎选择多余处理模块MPM
+    
+            从Apache 2.4开始我们可以根据实际情况选择三种不同的MPM:
+            n preforkMPM会开启多个进程，每个进程处理一个请求。通常我们只有在应用中使用了mod_php这样非线程安全的模块时才会使用prefork MPM。
+            n workerMPM的每个进程会使用多个线程，每个线程可以处理一个请求。相比于prefork MPM它可以处理更多的并发请求。
+            n eventMPM从Apache 2.4开始就成了默认的MPM模式，它与worker MPM类似每个进程也会有多个线程。不过会把KeepAlive和idle状态的连接交由一个单独的线程来处理，这样就可以腾出更多的内存来应付新的请求。eventMPM也不支持mod_php这样的非线程安全模块，好在有PHP-FPM这样的替代产品。
+            
+    4. 仔细为apache进程分配内存
+    
+            <IfModule mpm_event_module>
+                StartServers 3
+                MinSpareThreads        25
+                MaxSpareThreads       75
+                ThreadLimit                 64
+                ThreadsPerChild          25
+                MaxRequestWorkers   30
+                MaxConnectionsPerChild    1000
+            </IfModule>
+
+    5. 了解自己的应用
+    
+            下面的命令可以列出现在加载的所有模块：
+            httpd -M
+            apache2ctl -M
