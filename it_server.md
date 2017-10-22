@@ -160,6 +160,32 @@
 
         windows下:
         \\ip或主机名\winshare
+        
+##nfs##
+
+* 所需的软件
+
+        rpcbind(centos5.x以前叫做portmap,centos6.x之后才称为rpcbind)
+        nfs-utils
+
+* 软件结构
+
+        /etc/exports
+        /usr/sbin/exportfs
+        /var/lib/nfs/*tab
+        /usr/sbin/showmount(查询命令)
+        
+* 设定语法
+
+        目录 192.168.100.0/24(rw) localhost(rw) *.study.com(ro,sync)
+        注:
+        rw,ro,root_squash,no_root_squash,all_squash,anonuid,anongid
+
+* 启动
+
+        service rpcbind start
+        service nfs start
+        service nfslock start
 
 ##lamp##
 
