@@ -1,6 +1,6 @@
 一:监控基础
 
-1.   自动化监控框架:
+1. 自动化监控框架:
 
 三层:  联动工具:ansible
 二层:  定义管理工具:saltstack(批量管理,适合底层环境从零开始的),puppet(适合直接在现有平台开始管理)
@@ -11,7 +11,7 @@
      |
   小监控(用来监控监控服务器)
 
-2.SNMP协议:
+2. SNMP协议:
   例:如何监控主机是否在线
     主机一(监控端)         主机二(备监控端)
                          主机三(备监控端)
@@ -32,7 +32,7 @@
       基于ssh登陆到被控端执行命令或者脚本的方式
       以及通用agent
 
-3.监控监控软件(监控软件就是把2中的内容进行整合)
+3. 监控监控软件(监控软件就是把2中的内容进行整合)
   1) 监控软件的功能
      获取数据
      保存数据
@@ -59,7 +59,58 @@
    对os上的服务做监控,如nginx,apache等等服务
    等等 
 
-二 zabbix基础
+二 zabbix安装
+
+1. 如果是安装zabbix服务器,安装下面两个包
+
+        yum install zabbix-server-mysql zabbix-web-mysql
+        
+2. 如果只是安装zabbix agent,则只需要安装agent即可
+
+        yum install zabbix-agent
+
+3. 创建mysql数据库及用户和权限
+
+        mysql -uroot -p
+        create database zabbix character utf8 collate utf8_bin;
+        grant all privileges on zabbix.* to zabbix@localhost identified by 'zabbix';
+        flush privileges;
+
+4. 初始化zabbix数据库
+
+        cd /usr/share/doc/zabbix-server-mysql-2.xxx/create
+        mysql -uroot zabbix < schema.sql
+        mysql -uroot zabbix < images.sql
+        mysql -uroot zabbix < data.sql
+
+5. 调整配置文件
+
+        /etc/zabbix/zabbix_server.conf
+        DBHost=localhost
+        DBName=zabbix
+        DBUser=zabbix
+        DBPassword=zabbix
+
+6. 启动服务
+
+        service zabbix-server start
+        service httpd start
+
+7. php时区设置
+
+        /etc/httpd/conf.d/zabbix.conf
+        php_value date.timezone Asia/Shanghai
+
+8. 使用向导设置zabbix
+
+        * 使用之前的数据库信息,点击测试连接是否成功
+        * 填写Host和Port,如果不知道什么意思,就保持默认,Name自定义填写
+
+9. 登录到zabbix
+
+        默认的用户名和密码:Admin/zabbix
+
+三 zabbix基础
 
   1) zabbix监控框架
           监控主机
